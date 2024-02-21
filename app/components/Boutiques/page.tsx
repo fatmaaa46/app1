@@ -10,14 +10,6 @@ import Boutique from '@/app/Page/Boutique/Boutique';
 export default function page() {
 
 
-  const companyIndexToShow = 2; 
-  if (companyIndexToShow < 0 || companyIndexToShow >= Object.values(card.shoplist).length) {
-    return <p>Index d'entreprise invalide</p>;
-  }
-
-  const companyToShow:any = Object.values(card.shoplist)[companyIndexToShow];
-;
-
   return (
      <Boutique />
 //     <div>

@@ -1,21 +1,28 @@
+"use client"
 import React from 'react';
+import { useRouter } from "next/navigation";
 import { card } from './constants/constants';
 import Navbar from './components/Navbar';
 import ImgHeader from './components/ImgHeader';
 import Icons from './components/Icons/Icons';
+import { setId } from './components/store';
+
 export default function Home() {
-  
-  
+  const router = useRouter();
+  const navigateToOtherPage = (id:number) => {
+     setId(id)
+    localStorage.setItem("id",id.toString())
+    router.push('/components/Boutiques');
+  };
+
   return (
    <div>
     <ImgHeader/>
     <Navbar />
 <div className="containers">
         {Object.values(card.shoplist).map((item: any, id: number) => (
-          <div key={id}>
-            <a href={`/components/Boutiques`}>
-              <img src={item.image} alt={`Produit`} className="image" />
-            </a>
+          <div key={id} onClick={()=>navigateToOtherPage(id)}>
+            <img src={item.image} alt={`Produit`} className="image" />
             <p>{item.Company} </p>
             <p>
               {" "}

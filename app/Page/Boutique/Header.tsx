@@ -1,11 +1,16 @@
 import Icons from '@/app/components/Icons/Icons';
 import ImgHeader from '@/app/components/ImgHeader'
+import store from '@/app/components/store';
 import { card } from '@/app/constants/constants'
 import React from 'react'
+import { useSnapshot } from 'valtio/react';
 
 function Header() {
-    const companyIndexToShow = 2; 
-    const companyToShow:any = Object.values(card.shoplist)[companyIndexToShow];
+    
+    const {id}= useSnapshot(store)  
+  
+   
+     const companyToShow:any = Object.values(card.shoplist)[id];
 
   return (
     <div className='img' style={{ position: 'relative' }}> 
@@ -22,6 +27,7 @@ function Header() {
         flexDirection: 'column',
         alignItems: 'center',
       }}>
+         
         <div>
           <p>{`${companyToShow.Company.replace(/\s/g, "")}`}  </p>
           <p>ouvert de {companyToShow.openingTime1 } à {companyToShow.closingTime1} et de {companyToShow.openingTime2}  à {companyToShow.closingTime2}</p>
