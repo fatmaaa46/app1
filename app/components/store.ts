@@ -10,6 +10,7 @@ const defaultStateStore = {
 };
 
 const initialStateStore = defaultStateStore;
+
 const store = proxy<StoreType>(initialStateStore);
 
 

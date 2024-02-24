@@ -6,9 +6,9 @@ import CardCategorie from './CardCategorie'
 function Boutique() {
   return (
     <div>
-      <Header />
-      <MenuCategorie />
-      <CardCategorie />
+       <Header />
+     <MenuCategorie /> 
+    <CardCategorie /> 
     </div>
   )
 }
