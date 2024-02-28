@@ -1,8 +1,8 @@
+"use client"
 import Icons from '@/app/components/Icons/Icons';
 import ImgHeader from '@/app/components/ImgHeader'
 import store from '@/app/components/store';
 import { ListShop } from '@/app/constants/ListShop';
-import { card } from '@/app/constants/constants'
 import React from 'react'
 import { useSnapshot } from 'valtio/react';
 

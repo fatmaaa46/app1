@@ -1,106 +1,98 @@
+'use client'
+import React, { useState } from 'react';
 import Image from 'next/image';
-import moto from '../../image/moto.png'
-import panierrepas from '../../image/panierrepas.png'
-import { useState } from 'react';
-import '@/app/components/Modal/Modal.css';
-import { Button } from '@nextui-org/react';
-const App = () => {
-  const [showModal, setShowModal] = useState(false);
+import moto from '../../image/moto.png';
+import panierrepas from '../../image/panierrepas.png';
+import './Modal.css';
+import { useRouter } from "next/navigation";
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+
+const Modal: any = ({ showModal, setShowModal }: any) => {
+  const router = useRouter();
+
+  const [chosenOption, setChosenOption] = useState<string>('');
+  const [selectedTime, setSelectedTime] = useState<string>('');
+
+  const handleOptionClick = (option: string) => {
+    setChosenOption(option);
   };
-    const [selectedTime, setSelectedTime] = useState('');
-  
-    const handleTimeChange = (event:any) => {
-      setSelectedTime(event.target.value);
-    };
+
+  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedTime(event.target.value);
+  };
+
+
+
+  const handleValidateClick = () => {
+    console.log('Option choisie :', chosenOption);
+    console.log('Heure sélectionnée :', selectedTime);
+    if (selectedTime === "") {
+      alert("insert time")
+    }
+    else if (chosenOption === 'emporter') {
+      router.push('/Page/ListProduit');
+    }
+    else if (chosenOption === 'livraison') {
+
+    }
+    else {
+      alert("choose sale mode")
+    }
+  };
+
+  const handleCloseClick = () => {
+
+    setShowModal(false);
+  };
 
   return (
-    <div className='modal1'>
-      <button onClick={toggleModal} className='button type1' type="button">
-      <span className="btn-txt">Commander</span>
-      </button>
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={toggleModal}>&times;</span>
-            <h2 > Modes de retrait</h2>
-        <div  style={{ display: 'flex' , alignItems: 'center'}}>
-      <div className='container'>
-        <a href=''>
-         <Image 
-           src={moto} 
-           alt="moto"
-           style={{    
-            width: '30%',
-           height: '30%',}}
-           className="hidden md:block"/>  </a>
-         <div>a importer</div>
-      
-      </div>
-      <div>
-        <a href=''>
-      <Image 
-           src={panierrepas} 
-           alt="pizza"
-           className="hidden md:block"
-           style={{    
-            width: '30%',
-           height: '30%',
-           }}/> 
-         </a>
-      <div> en livraison</div>
-      </div>
-      </div>
-     <div className='text'> <p> Aujourd'hui</p></div>
-     <div>
-      <label htmlFor="timeInput"></label>
-      <input
-        type="time"
-        id="timeInput"
-        className="timeInput"
-        value={selectedTime}
-        onChange={handleTimeChange}
-      />
-    </div>
-    <Button className='button'>valider</Button>
+    <>
+      <div className="container">
+
+        {setShowModal && (
+          <div className="modal-container">
+
+            <div className="modal__clz">
+              <div className="row">
+                <div className="row">
+                  <h2 style={{ width: "80%" }}>Modes de retrait</h2>
+                  <span onClick={handleCloseClick} className='close-button' style={{ width: "10%" }}>×</span>
+                </div>
+
+
+                <div className="options">
+                  <div>
+                    <Image src={panierrepas} alt="Emporter" onClick={() => handleOptionClick('emporter')} style={{
+                      backgroundColor: "green",
+                      borderRadius: "100%",
+                    }} /> <br />
+                    <p style={{ marginTop: "1rem", marginBottom: "0.5rem" }}>A emporter</p>
+                  </div>
+                  <div>
+                    <Image src={moto} alt="Livraison" onClick={() => handleOptionClick('livraison')} style={{
+                      backgroundColor: "",
+                      borderRadius: "100%",
+                    }} /><br />
+                    <p style={{ marginTop: "1rem", marginBottom: "0.5rem" }}>Livraison</p>
+                  </div>
+                </div>
+
+                <p style={{ marginTop: "1rem", marginBottom: "0.5rem" }}>Aujourd'hui</p>
+
+                <div className="time-input">
+                  <input type="time" value={selectedTime} onChange={handleTimeChange} />
+                </div>
+
+                <button onClick={handleValidateClick} className='button'>Valider</button>
+
+              </div >
+            </div>
           </div>
-    
-        </div>
-      )}
-      <style jsx>{`
-        .modal {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-        }
+        )}
 
-        .modal-content {
-          background-color: white;
-          padding: 20px;
-          border-radius: 5px;
-          width: 30%;
-          height: 70%;
-        }
-
-        .close {
-          align-items: left;
-          float: left;
-          cursor: pointer;
-          background-color:red;
-          width: 5%;
-          height: 5%;
-        }
-      `}</style>
-    </div>
+      </div>
+    </>
   );
 };
 
-export default App;
+export default Modal;

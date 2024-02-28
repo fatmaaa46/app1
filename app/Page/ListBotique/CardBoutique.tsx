@@ -15,7 +15,7 @@ function CardBoutique() {
     };
     
   return (
-    <div className="row">
+    <div className="row " style={{cursor : "pointer"}}>
           {Object.values(ListShop).map((item: any, id: number) => (
             <div
               className="col-sm my-3"
