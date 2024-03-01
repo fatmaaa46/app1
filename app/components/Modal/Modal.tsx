@@ -24,8 +24,7 @@ const Modal: any = ({ showModal, setShowModal }: any) => {
 
 
   const handleValidateClick = () => {
-    console.log('Option choisie :', chosenOption);
-    console.log('Heure sélectionnée :', selectedTime);
+
     if (selectedTime === "") {
       alert("insert time")
     }
@@ -50,6 +49,7 @@ const Modal: any = ({ showModal, setShowModal }: any) => {
       <div className="container">
 
         {setShowModal && (
+         
           <div className="modal-container">
 
             <div className="modal__clz">

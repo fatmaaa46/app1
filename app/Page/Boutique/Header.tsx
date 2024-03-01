@@ -10,7 +10,7 @@ function Header() {
     
     const {id}= useSnapshot(store)  
   
-   const companyToShow: any = ListShop[id];
+   const companyToShow: any = Object.values(ListShop)[id];
   
 
   return (
@@ -32,12 +32,11 @@ function Header() {
       >
          
         <div>
-          <p>{`${companyToShow.Company.replace(/\s/g, "")}`}  <br /> <br /> 
-          ouvert de {companyToShow.openingTime1 } à {companyToShow.closingTime1} et de {companyToShow.openingTime2}  à {companyToShow.closingTime2} <br /> 
-
-            {companyToShow.Address},{companyToShow.PostalCode} {companyToShow.town} <br />   
+          <p>{`${companyToShow.Company.replace(/\s/g, "")}`} </p> 
+          <p>ouvert de {companyToShow.openingTime} et a {companyToShow.closingTime} </p>
+          <p>{companyToShow.Address},{companyToShow.PostalCode} {companyToShow.town}</p>   
             <a href=''>Informations utiles</a>
-          </p>
+          
           
             <Icons/>
         

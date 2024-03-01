@@ -1,9 +1,9 @@
 import React from 'react'
 import ImgHeader from '@/app/components/ImgHeader';
-import { Navbar } from '@nextui-org/react';
 
 import CardBoutique from './CardBoutique';
 import Header1 from '@/app/components/Header1';
+import Navbar from './Navbar';
 
 function ListeBoutique() {
 

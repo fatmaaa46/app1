@@ -10,10 +10,8 @@ export const ListShop  :any ={
           "Country": "FRANCE",
           "PostalCode": "78280",
           "Responsible": "",
-          "openingTime1": "11:00",
-          "closingTime1": " 13:30",
-          "openingTime2": "18:00",
-          "closingTime2": " 23:00"
+          "openingTime": "18:00",
+          "closingTime": " 23:00"
         },
     
         "3": {
@@ -39,8 +37,8 @@ export const ListShop  :any ={
           "Country": "FRANCE",
           "PostalCode": "80000",
           "Responsible": "",
-          "openingTime1": "18:00",
-          "closingTime1": "22:30"
+          "openingTime": "18:00",
+          "closingTime": "22:30"
         },
         "5": {
           "town": "AMIENS",
