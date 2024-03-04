@@ -1,16 +1,22 @@
+"use client"
 import React from 'react'
 import Header from './Header'
 import MenuCategorie from './MenuCategorie'
 import CardCategorie from './CardCategorie'
 import Header1 from '@/app/components/Header1'
+import Modal from '../Modal/Modal'
 
 function Boutique() {
+  const [showModal, setShowModal] = React.useState(false);
+
   return (
     <div>
       <Header1 />
-       <Header />
-     <MenuCategorie /> 
-    <CardCategorie /> 
+      <Header />
+      <MenuCategorie showModal={showModal} setShowModal={setShowModal} />
+      <CardCategorie showModal={showModal} setShowModal={setShowModal} />
+      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
+
     </div>
   )
 }

@@ -18,9 +18,9 @@ function CardProduit() {
                     <h5 className="card-title my-5">{card[value.type][key].title}</h5>
                     <div className="row">
                         {Object.entries(value.content).map(([innerKey, innerValue]: any) => (
-                            <div className="col-sm my-3">
+                            <div className="col-md-4 my-3">
 
-                                <div className="card" style={{ width: "18rem" }} key={innerKey}>
+                                <div className="card" style={{ width: "18rem", border: "none" }} key={innerKey}>
                                     <img
                                         className="card-img-top"
                                         src={
@@ -32,13 +32,7 @@ function CardProduit() {
                                         <h5 className="card-title">
                                             {card[innerValue.type][innerKey].title}
                                         </h5>
-                                        <p className="card-text">
-                                            Some quick example text to build on the card title and make up
-                                            the bulk of the card's content.
-                                        </p>
-                                        <a href="#" className="btn btn-primary">
-                                            Go somewhere
-                                        </a>
+                                        <p className="card-text">{card[innerValue.type][innerKey].title} </p>
                                     </div>
                                 </div>
                             </div>

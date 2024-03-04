@@ -1,10 +1,10 @@
 "use client"
 import React, { useState } from 'react'
 import Image from 'next/image'
-import i1 from '../../image/i1.jpg'
+import i1 from '../../../public/image/i1.jpg'
 import DropDownMenu from '../../components/DropDown/DropDownMenu';
 import { Button } from '@nextui-org/react';
-import Modal from '@/app/components/Modal/Modal';
+import Modal from '@/app/Page/Modal/Modal';
 
 
 
@@ -25,16 +25,16 @@ const NavProduit = () => {
                                     className="hidden md:block"
                                     alt="Picture of the author" />
                             </div>
-                           
-                                
-                                    <Button type="button" className="btn btn-dark" style={{top :"100px"}} >A Emporter </Button>
-                                <p >Flex item 2</p>
-                                <div ><DropDownMenu /></div>
-                            
+
+
+                            <Button type="button" className="btn btn-dark" style={{ top: "100px" }} >A Emporter </Button>
+                            <p >Flex item 2</p>
+                            <div ><DropDownMenu /></div>
+
                         </div>
                     </div>
-                    
-                    
+
+
                 </nav>
             </div>
         </div>

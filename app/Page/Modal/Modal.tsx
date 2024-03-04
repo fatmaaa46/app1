@@ -1,15 +1,18 @@
 'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
-import moto from '../../image/moto.png';
-import panierrepas from '../../image/panierrepas.png';
+import moto from '../../../public/image/moto.png';
+import panierrepas from '../../../public/image/panierrepas.png'
 import './Modal.css';
 import { useRouter } from "next/navigation";
+import { useSnapshot } from 'valtio';
+import store from '@/app/components/store';
 
 
 const Modal: any = ({ showModal, setShowModal }: any) => {
   const router = useRouter();
-
+  const { selectedCategorie } = useSnapshot(store)
+  console.log({ selectedCategorie })
   const [chosenOption, setChosenOption] = useState<string>('');
   const [selectedTime, setSelectedTime] = useState<string>('');
 
@@ -49,7 +52,7 @@ const Modal: any = ({ showModal, setShowModal }: any) => {
       <div className="container">
 
         {setShowModal && (
-         
+
           <div className="modal-container">
 
             <div className="modal__clz">

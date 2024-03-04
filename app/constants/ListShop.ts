@@ -20,7 +20,7 @@ export const ListShop  :any ={
           "Nature": "boutique",
           "shopid": 3,
           "Address": "9 RUE TIME CORNILLON",
-          "Company": "Pizza Time Meaux",
+          "Company": "Pizza Time Meaux                  ",
           "Country": "FRANCE",
           "PostalCode": "77100 ",
           "Responsible": "",
